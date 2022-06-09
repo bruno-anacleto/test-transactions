@@ -3,11 +3,7 @@
 namespace App\Models;
 
 use App\Mail\SubscriptionSuccessMail;
-use Exception;
-use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
 abstract class ApiHelper extends Model
 {
@@ -17,13 +13,15 @@ abstract class ApiHelper extends Model
     public static function curlWrapper($endpoint,$method='GET'){
 
         $curl = curl_init();
-
+        $certificate_location = "/usr/local/openssl-0.9.8/certs/cacert.pem";
         curl_setopt_array($curl, [
             CURLOPT_URL => $endpoint,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 30,
+            CURLOPT_SSL_VERIFYHOST=>$certificate_location,
+            CURLOPT_SSL_VERIFYPEER=>$certificate_location,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => $method,
             CURLOPT_HTTPHEADER => [
