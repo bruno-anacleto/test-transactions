@@ -57,7 +57,6 @@ http://mailtrap.io/
 
 
 ##Fim
-:heart:
-*Mais uma vez obrigado pela oportunidade. :heart: Aguardo o retorno de vocês* :heart:
+*Mais uma vez obrigado pela oportunidade. :heart: Aguardo o retorno de vocês*
 
 
