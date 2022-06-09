@@ -52,7 +52,12 @@ http://mailtrap.io/
 >
 > MAIL_PASSWORD=
 
+### Rodar migrations
+*As migrations são necessárias para a criação do banco de dados e execução dos testes*
+> php artisan migrate
+
 # Rodando teste:
+
 > php artisan test 
 
 
