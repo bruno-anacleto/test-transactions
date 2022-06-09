@@ -22,6 +22,7 @@ class User extends Authenticatable
         'full_name',
         'email',
         'document_number',
+        'account_balance',
         'type',
         'password',
     ];
@@ -49,6 +50,10 @@ class User extends Authenticatable
         $this->attributes['password']= Hash::make($password);
     }
 
+    public function setDocumentNumberAttribute($document_number){
+        $this->attributes['document_number']=preg_replace("/[^0-9]/", "", $document_number);
+    }
+
     public function checkUserTypeTransfer(){
         if($this->type=='jurídica'){
             return 0;
@@ -58,7 +63,7 @@ class User extends Authenticatable
     }
 
     public function checkBalance($valueToCheck){
-        if($valueToCheck>$this->attributes['account_balance']){
+        if($this->attributes['account_balance']>$valueToCheck){
             return true;
         }else{
             return false;

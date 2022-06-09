@@ -4,15 +4,12 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TransactionStoreRequest;
-use App\Models\ApiHelper;
-use App\Models\NotifyHelper;
 use App\Models\Transfers;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class TransactionController extends Controller
+class TransferController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,6 +30,7 @@ class TransactionController extends Controller
      */
     public function store(TransactionStoreRequest $request)
     {
+
         try{
 
         $senderUser = User::findOrFail($request['sender_user_id']);
@@ -41,12 +39,16 @@ class TransactionController extends Controller
 
         if($senderUser->id!=$receiverUser->id){
             if($senderUser->checkUserTypeTransfer()){
-                return Transfers::makeTransfer($senderUser,$receiverUser,$value);
+                if($senderUser->checkBalance($value)){
+                    return Transfers::makeTransfer($senderUser,$receiverUser,$value);
+                }else{
+                    return response('Você não tem saldo suficiente para efetuar essa transferência.', 401);
+                }
             }else{
-                throw new Exception('Lojistas não podem enviar dinheiro. Entre em contato com o suporte.', 401);
+                return response('Lojistas não podem enviar dinheiro. Entre em contato com o suporte.', 401);
             }
         }else{
-            throw new Exception("O usuário não pode transferir para ele mesmo.", 422);
+            return response("O usuário não pode transferir para ele mesmo.", 422);
             }
         }catch (Exception $e){
             return response($e->getMessage(), 400);

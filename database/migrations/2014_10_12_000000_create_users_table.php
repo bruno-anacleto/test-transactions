@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->char('document_number',14)->unique();
             $table->enum('type',array('fisíca','jurídica'));
             $table->string('email',120)->unique();
-            $table->decimal('account_balance',10,2)->nullable();
+            $table->decimal('account_balance',10,2)->default(0);
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
