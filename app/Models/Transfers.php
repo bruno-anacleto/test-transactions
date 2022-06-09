@@ -37,7 +37,7 @@ class Transfers extends Authenticatable
         'updated_at',
     ];
 
-    public function makeTransfer($userSender,$userReceiver,$transferred_value=0){
+    public static function makeTransfer($userSender,$userReceiver,$transferred_value=0){
         DB::beginTransaction();
 
         try{
