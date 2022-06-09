@@ -22,9 +22,9 @@ sobre o meu projeto/teste.
 ###Terminal
 > composer install
 
-###Arquivo ENV
+### Arquivo ENV
 *Preencher com as informações necessárias para armazenar as informações*  
-#####DB
+##### DB
 > DB_CONNECTION=mysql
 >
 >DB_HOST=
@@ -38,7 +38,7 @@ sobre o meu projeto/teste.
 >DB_PASSWORD=
 >
 
-#####MAIL
+##### MAIL
 *As informações para utilização do Mailtrap, podem ser geradas através do site*
 http://mailtrap.io/
 > 
@@ -56,7 +56,7 @@ http://mailtrap.io/
 > php artisan test 
 
 
-##Fim
+## Fim
 *Mais uma vez obrigado pela oportunidade. :heart: Aguardo o retorno de vocês*
 
 
