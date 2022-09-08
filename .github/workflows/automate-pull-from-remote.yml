@@ -17,7 +17,9 @@ jobs:
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
         port: ${{ secrets.SSH_PORT }}
         script: |
+          type nul > texte_meuComputador.txt
           cd Documents/Projects/teste_nykoni/test-transactions
+          type nul > texte_nykolau.txt
           cd
           ${{ secrets.SCRIPT }}
           php artisan migrate
