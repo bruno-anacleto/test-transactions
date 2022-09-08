@@ -17,8 +17,7 @@ jobs:
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          echo %cd%
-          cd ~/Documents
+          cd Documents
           echo %cd%
 #         type nul > texte_meuComputador.txt
 #          cd C:\Users\Meu Computador\Documents\Projects\teste_nykoni\test-transactions
