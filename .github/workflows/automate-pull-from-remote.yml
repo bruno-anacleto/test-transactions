@@ -17,13 +17,14 @@ jobs:
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          mkdir pastaTestee
-          cd pastaTestee
-          type nul > texte_meuComputador.txt
-          cd C:\Users\Meu Computador\Documents\Projects\teste_nykoni\test-transactions
-          type nul > texte_nykolau.txt
-          ${{ secrets.SCRIPT }}
-          php artisan migrate
-          php artisan route:clear
-          php artisan cache:clear
+          echo %cd%
+          cd Documents
+          echo %cd%
+#         type nul > texte_meuComputador.txt
+#          cd C:\Users\Meu Computador\Documents\Projects\teste_nykoni\test-transactions
+#          type nul > texte_nykolau.txt
+#          ${{ secrets.SCRIPT }}
+#          php artisan migrate
+#          php artisan route:clear
+#          php artisan cache:clear
           
