@@ -18,6 +18,7 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           cd Documents/Projects/teste_nykoni/test-transactions
+          cd
           ${{ secrets.SCRIPT }}
           php artisan migrate
           php artisan route:clear
