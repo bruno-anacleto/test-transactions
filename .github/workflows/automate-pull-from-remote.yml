@@ -4,7 +4,7 @@ jobs:
 
   build:
     name: Build
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Repository checkout
       uses: actions/checkout@v2
@@ -18,7 +18,7 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           echo %cd%
-          cd Documents
+          cd ~/Documents
           echo %cd%
 #         type nul > texte_meuComputador.txt
 #          cd C:\Users\Meu Computador\Documents\Projects\teste_nykoni\test-transactions
