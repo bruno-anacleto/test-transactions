@@ -18,9 +18,8 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           type nul > texte_meuComputador.txt
-          cd Documents/Projects/teste_nykoni/test-transactions
+          cd C:\Users\Meu Computador\Documents\Projects\teste_nykoni\test-transactions
           type nul > texte_nykolau.txt
-          cd
           ${{ secrets.SCRIPT }}
           php artisan migrate
           php artisan route:clear
