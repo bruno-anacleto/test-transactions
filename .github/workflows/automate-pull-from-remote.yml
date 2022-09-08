@@ -8,6 +8,8 @@ jobs:
     steps:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
+      env:
+        password: ${{ secrets.SSH_PASSWORD }}
       with:
         host: ${{ secrets.IP_ADDRESS }}
         username: ${{ secrets.USERNAME }}
