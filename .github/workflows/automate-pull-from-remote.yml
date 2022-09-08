@@ -15,8 +15,5 @@ jobs:
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          cd ~/Documents/Projects/teste_nykoni/test-transactions
-          ${{ secrets.SCRIPT}}
-          php artisan migrate
-          php artisan route:clear
-          php artisan cache:clear
+          bruno
+          ls
